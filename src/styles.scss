@@ -1,0 +1,20 @@
+@import '~locomotive-scroll/dist/locomotive-scroll.css';
+/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: white;
+    // font-family: Encode Sans !important;
+}
+
+
+:host::ng-deep {
+    .ant-layout-content {
+        background-color: white;
+    }
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+.italic-text {
+    font-style: italic !important;
+}

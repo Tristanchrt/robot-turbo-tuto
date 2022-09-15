@@ -1,0 +1,570 @@
+<!-- <div class="canvas-chart"> -->
+<!-- <canvas baseChart height="300" width="500" [datasets]="lineChartData" [labels]="lineChartLabels"
+            [options]="lineChartOptions" [colors]="lineChartColors" chartType="line"
+            [plugins]="lineChartPlugins"></canvas> -->
+<!-- </div> -->
+<div class="main-body" id="body">
+    <div class="nav d-flex justify-content-around align-items-center header-menu">
+        <!-- <img nz-image width="128px" height="128px" nzSrc="assets/img/robot1.png" alt="robot" /> -->
+        <div (click)="reload()" class="d-flex logo mx-5">
+            <img class="img-logo" src="assets/img/turbo-logo.png" alt="" />
+            <h4>Turbo-bot tuto</h4>
+        </div>
+        <div class="d-flex links-buttons">
+            <div class="buttons mx-5 align-items-center d-flex">
+                <div class="links">
+                    <!-- <a class="link mx-1 align-items-center">Robot de trading</a>
+                    <a class="link mx-2 align-items-center" nz-dropdown [nzDropdownMenu]="menu">
+                        Robot de trading
+                        <i nz-icon nzType="down" nzTheme="outline"></i>
+                    </a>
+                    <nz-dropdown-menu #menu="nzDropdownMenu">
+                        <ul nz-menu nzSelectable>
+                            <li nz-menu-item class="d-flex flex-column">
+                                <div class="p-1 d-flex align-items-center">
+                                    <div class="menu-drop-down-image">
+                                        <ng-lottie (animationCreated)="animationCreated($event)" [options]="robot1">
+                                        </ng-lottie>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <span class="h5 mx-2">2nd menu item</span>
+                                        <span class="h5 mx-2">2nd menu item</span>
+                                        <span class="h5 mx-2">2nd menu item</span>
+                                    </div>
+                                </div>
+                                <div class="p-1 d-flex align-items-center">
+                                    <img class="mx-2" width="108" height="108" alt="robot-main"
+                                        src="assets/img/robot1.png" />
+                                    <div class="d-flex flex-column">
+                                        <span class="h5 mx-2">2nd menu item</span>
+                                        <span class="h5 mx-2">2nd menu item</span>
+                                        <span class="h5 mx-2">2nd menu item</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </nz-dropdown-menu> -->
+                </div>
+                <div class="mx-3"></div>
+                <img (click)="toggleLanguage('fr')" role="button" class="lang" src="assets/img/fr-flag.png"
+                    alt="robot" />
+                <div class="mx-2"></div>
+                <img (click)="toggleLanguage('en')" role="button" class="lang" src="assets/img/en-flag.png"
+                    alt="robot" />
+            </div>
+        </div>
+        <div class="responsive-links-buttons mt-3">
+            <i role="button" (click)="modalMenu()" nz-icon nzType="menu" nzTheme="outline"></i>
+        </div>
+    </div>
+
+    <div class="home-body" data-scroll-container>
+
+        <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'">
+            <video class="banniere" loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true">
+                <source src="assets/animation/banniere.mp4" type="video/mp4">
+            </video>
+            <div class="mt-5 d-flex introduction justify-content-center">
+                <div>
+                    <div class="intro-text">
+                        <h1 class="title-text"> {{'title' | translate}}</h1>
+                        <h1 class="orange"> {{'intro-1' | translate}}</h1>
+                        <p class="bloc-cards-text tertiary-text">
+                            {{'intro-2' | translate}}
+                        </p>
+                    </div>
+                    <div class="mt-5 d-flex justify-content-between">
+                        <a href="https://app.weareturbo.io/#/register/upline/will69">
+                            <!-- <button>S'inscrire sur AutoTrade Gold</button> -->
+                            <button nz-button nzSize="large" nzShape="round" nzType="primary"> {{'intro-3' | translate}}
+                            </button>
+                        </a>
+                        <!-- <button nz-button nzSize="large" nzType="default">Tutoriel utlilisation</button> -->
+                    </div>
+                </div>
+                <div class="mx-5"></div>
+                <div class="intro-image">
+                    <img class="img1 main-image" src="assets/img/turbo2.png" alt="" />
+                </div>
+            </div>
+            <div class="spacer3"></div>
+            <div class="mt-5 text-description">
+                <div class="mt-5 d-flex cards-bloc-intro">
+                    <div class="card-bloc-intro">
+                        <img class="img-scan" src="assets/img/rocket.png" alt="" />
+                        <p class="text-center">
+                            {{'card-1' | translate}}
+                        </p>
+                        <p class="text-center">
+                            {{'card-2' | translate}}
+                        </p>
+                    </div>
+                    <div class="mx-5"></div>
+                    <div class="card-bloc-intro">
+                        <img class="img-scan" src="assets/img/money.png" alt="" />
+                        <p class="text-center">
+                            {{'card-3' | translate}}
+                        </p>
+                        <p class="text-center">
+                            {{'card-4' | translate}}
+                        </p>
+                    </div>
+                    <div class="mx-5"></div>
+                    <div class="card-bloc-intro">
+                        <img class="img-scan" src="assets/img/computer.png" alt="" />
+                        <p class="text-center">
+                            {{'card-5' | translate}}
+                        </p>
+                        <p class="text-center">
+                            {{'card-6' | translate}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="spacer3"></div>
+            <video class="banniere" controls muted>
+                <source class="banniere" src="assets/animation/presentation.mp4" type="video/mp4">
+            </video>
+            <div class="spacer2"></div>
+            <div class="mt-5 text-description tuto-block">
+                <div class="bloc-text mr-5">
+                    <div class="head-tuto d-flex flex-column align-items-center justify-content-center">
+                        <h3 class="title-text-secondary text-center">{{'tuto-step' | translate}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="bloc-text mt-5">
+                <div class="spacer2"></div>
+                <div>
+                    <div class="tag-steps">
+                        <nz-tag nzColor="processing">ETAPE 1 / Turbo bot</nz-tag>
+                    </div>
+                    <div class="mt-5 d-flex step1">
+                        <div class="mt-4 d-flex flex-column justify-content-left">
+                            <p class="bloc-cards-text tertiary-text">
+                                {{'et1-1' | translate}}
+                            </p>
+                            <a href="https://pantheratrade.live/register/?r=IB00897707">
+                                <button nz-button nzSize="large" nzShape="round" nzType="primary">{{'et1-2' |
+                                    translate}}</button>
+                            </a>
+                            <p class="mt-3 bloc-cards-text tertiary-text">
+                                {{'et1-3' | translate}}
+                            </p>
+                            <ul class="bloc-cards-text tertiary-text">
+                                <li>{{'et1-4' | translate}}</li>
+                                <li>{{'et1-5' | translate}}</li>
+                                <li>{{'et1-6' | translate}}</li>
+                                <li>{{'et1-7' | translate}}</li>
+                            </ul>
+                        </div>
+                        <div class="mx-5"></div>
+                        <div class="mt-3 lign-middle bloc-image">
+                            <img class="img1" src="assets/img/turbo-signup.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer2"></div>
+                <div class="border-steps"></div>
+                <div class="mt-5 tag-steps">
+                    <nz-tag nzColor="processing">ETAPE 2 / Turbo bot</nz-tag>
+                </div>
+
+                <div class="step1-2 mt-5 d-flex">
+                    <div class="mt-3 bloc-cards-text tertiary-text">
+                        <p>
+                            {{'et2-1' | translate}} <strong class="bg-warning">{{'et2-2' | translate}}</strong>
+                            {{'et2-3' | translate}}
+                        </p>
+                        <p>
+                            {{'et2-4' | translate}} <strong class="underline">{{'et2-5' | translate}}</strong> {{'et2-6'
+                            | translate}}
+                        </p>
+                        <nz-tag [nzColor]="'#e88d55'">
+                            {{'et2-7' | translate}}
+                        </nz-tag>
+                        <p class="mt-3">
+                            <strong>{{'et2-8' | translate}} </strong> {{'et2-9' | translate}}
+                        </p>
+                        <p>
+                            {{'et2-10' | translate}} <strong>{{'et2-11' | translate}} </strong>
+                            {{'et2-12' | translate}}
+                        </p>
+                    </div>
+                    <div class="mx-5"></div>
+                    <div class="mt-3 lign-middle bloc-image">
+                        <img class="img22" src="assets/img/turbo-2.jpg" alt="" />
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <div class="mt-3 bloc-cards-text tertiary-text">
+                        <h3 class="mt-5 title-text-secondary">
+                            {{'et2-13' | translate}}
+                        </h3>
+                        <div class="mt-3 bloc-cards-text tertiary-text">
+                            <p>
+                                {{'et2-14' | translate}} <strong class="underline">{{'et2-15' | translate}}</strong>
+                                {{'et2-16' | translate}}
+                            </p>
+                            <p>
+                                {{'et2-17' | translate}}
+
+                                {{'et2-18' | translate}} <strong>{{'et2-19' | translate}} </strong>{{'et2-20' |
+                                translate}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="step2 d-flex justify-content-between align-items-center">
+                        <div class="mt-3 lign-middle bloc-image">
+                            <img class="img1" src="assets/img/bitcoin-step.jpg" alt="" />
+                        </div>
+                        <span class="is-repsonsive" nz-icon nzType="arrow-right" nzTheme="outline"></span>
+                        <span class="is-not-repsonsive" nz-icon nzType="arrow-down" nzTheme="outline"></span>
+                        <div class="mt-3 lign-middle bloc-image">
+                            <img class="img1" src="assets/img/payment2.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spacer2"></div>
+                <div class="border-steps"></div>
+                <div class="mt-5 tag-steps">
+                    <nz-tag nzColor="processing">ETAPE 3 / Turbo bot</nz-tag>
+                </div>
+                <div class="mt-5 d-flex step2">
+                    <div class="mt-3 bloc-cards-text tertiary-text">
+                        <p>
+                            {{'et3-1' | translate}} <strong class="bg-warning"> {{'et3-2' | translate}}</strong>
+                            {{'et3-3' | translate}}
+                        </p>
+                        <p>
+                            {{'et3-4' | translate}} <strong class="under-line"> {{'et3-5' | translate}}</strong>
+                            {{'et3-6' | translate}}
+                        </p>
+                        <p>
+                            {{'et3-7' | translate}}
+                        </p>
+                    </div>
+                    <div class="mx-5"></div>
+                    <div class="mt-3 lign-middle bloc-image">
+                        <img class="img22" src="assets/img/final-turbo.png" alt="" />
+                    </div>
+                </div>
+                <div class="spacer"></div>
+                <nz-alert nzType="success" [nzMessage]="temp1" nzShowIcon></nz-alert>
+                <ng-template #temp1>
+                    {{'et3-8' | translate}}
+                </ng-template>
+                <nz-alert class="mt-3" nzType="warning" nzShowIcon [nzMessage]="temp2"></nz-alert>
+                <ng-template #temp2>
+                    {{'et3-9' | translate}}
+                </ng-template>
+                <div class="spacer2"></div>
+                <div class="border-steps"></div>
+                <div class="mt-5 tag-steps">
+                    <nz-tag nzColor="processing">ETAPE 4 / Turbo bot</nz-tag>
+                </div>
+                <h3 class="mt-5 title-text-secondary">
+                    {{'et4-1' | translate}}
+                </h3>
+
+                <div class="d-flex step1-broker1">
+                    <div class="mt-3 bloc-cards-text tertiary-text">
+                        <a href="https://client.fxwinning.pro/">
+                            <button nz-button nzType="primary" nzShape="round" nzSize="large">
+                                {{'et4-2' | translate}}
+                            </button>
+                        </a>
+                        <p class="mt-3">
+                            {{'et4-3' | translate}}
+                        </p>
+                        <p class="mt-2">
+                            {{'et4-4' | translate}}
+                        </p>
+                    </div>
+                    <div class="mx-5"></div>
+                    <div class="mt-3 lign-middle bloc-image">
+                        <img class="img1" src="assets/img/broker1.png" alt="" />
+                    </div>
+                </div>
+                <nz-alert class="mt-3" nzType="warning" nzShowIcon [nzMessage]="temp3">
+                </nz-alert>
+                <ng-template #temp3>
+                    {{'et4-5' | translate}}
+                </ng-template>
+                <div class="mt-3 d-flex step1-broker1">
+                    <div class="mt-3 bloc-cards-text tertiary-text">
+                        <p>
+                            {{'et4-6' | translate}}
+                        </p>
+                    </div>
+                    <div class="mx-5"></div>
+                    <div class="mt-3 lign-middle bloc-image">
+                        <img class="img2" src="assets/img/broker3.png" alt="" />
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <div class="mt-3 bloc-cards-text tertiary-text">
+                        <nz-alert class="mt-3" nzType="warning" nzShowIcon [nzMessage]="temp7">
+                        </nz-alert>
+                        <ng-template #temp7>
+                            {{'et4-7' | translate}}
+                        </ng-template>
+                    </div>
+                    <div class="spacer"></div>
+                    <nz-steps class="mt-5 steps-mutli-images" [nzCurrent]="current" nzSize="small">
+                        <nz-step nzTitle="Contact information"></nz-step>
+                        <nz-step nzTitle="Industry experience"></nz-step>
+                        <nz-step nzTitle="Terms and conditions"></nz-step>
+                    </nz-steps>
+                    <div class="mx-5"></div>
+                    <div class="d-flex mt-5 mutli-images justify-content-between">
+                        <img class="img2" src="assets/img/borker2-real.png" alt="" />
+                        <span class="is-not-repsonsive" nz-icon nzType="arrow-down" nzTheme="outline"></span>
+                        <img class="img2" src="assets/img/registration-step4.png" alt="" />
+                        <span class="is-not-repsonsive" nz-icon nzType="arrow-down" nzTheme="outline"></span>
+                        <img class="img2" src="assets/img/registration-step-5.png" alt="" />
+                    </div>
+                </div>
+                <div class="spacer2"></div>
+                <div class="border-steps"></div>
+                <div class="mt-5 tag-steps">
+                    <nz-tag nzColor="processing">ETAPE 5 / Turbo bot</nz-tag>
+                </div>
+                <div class="d-flex step2">
+                    <div class="mt-5 bloc-cards-text tertiary-text">
+                        <h3 class="title-text-secondary">
+                            {{'et5-1' | translate}}
+                        </h3>
+                        <p>
+                            {{'et5-2' | translate}}
+                        </p>
+                        <a href="https://drive.google.com/file/d/1nefTOmh_PWPdj5URrWmBdaKCL6N-Dp5k/view">
+                            <button nz-button nzSize="large" nzShape="round" nzType="primary">
+                                {{'et5-3' | translate}}</button>
+                        </a>
+                        <p class="mt-3">
+                            {{'et5-4' | translate}}
+                        </p>
+                        <nz-tag [nzColor]="'#e88d55'">
+                            <a href="https://drive.google.com/file/d/122vLqrSI9HUJUpdiV8TepTvjzYiuG554/view">
+                                {{'et5-5' | translate}}
+                            </a>
+                        </nz-tag>
+                    </div>
+                    <div class="mx-5"></div>
+                    <div class="mt-5 align-middle bloc-image">
+                        <img class="img-scan" src="assets/img/broker6.png" alt="" />
+                    </div>
+                </div>
+                <div class="spacer2"></div>
+                <div class="border-steps"></div>
+                <div class="mt-5 tag-steps">
+                    <nz-tag nzColor="processing">ETAPE 6 / Turbo bot</nz-tag>
+                </div>
+                <div class="d-flex step2">
+                    <div class="mt-5 bloc-cards-text tertiary-text">
+                        <p>
+                            {{'et6-1' | translate}}
+                        </p>
+                        <p>
+                            {{'et6-2' | translate}}
+                            <strong class="bg-warning">{{'et6-3' | translate}}</strong>
+                        </p>
+                        <p>
+                            {{'et6-4' | translate}} <strong>{{'et6-5' | translate}} </strong>
+                            {{'et6-6' | translate}}
+                        </p>
+                        <p>
+                            {{'et6-7' | translate}}
+                            <strong class="under-line"> {{'et6-8' | translate}}</strong>
+                            {{'et6-9' | translate}}
+                        </p>
+                        <nz-alert class="mt-3" nzType="error" nzShowIcon [nzMessage]="temp4">
+                        </nz-alert>
+                        <ng-template #temp4>
+                            {{'et6-10' | translate}}
+                        </ng-template>
+                    </div>
+                    <div class="mx-5"></div>
+                    <div class="mt-3 lign-middle bloc-image">
+                        <img class="img22" src="assets/img/broker7.png" alt="" />
+                    </div>
+                </div>
+                <div class="spacer2"></div>
+                <div class="border-steps"></div>
+                <div class="mt-5 tag-steps">
+                    <nz-tag nzColor="processing">ETAPE 7 / Turbo bot </nz-tag>
+                </div>
+                <div class="d-flex step2">
+                    <div class="mt-5 bloc-cards-text tertiary-text">
+                        <p>
+                            {{'et7-1' | translate}} <strong class="bg-warning">{{'et7-2' | translate}}</strong>
+                            {{'et7-3' | translate}} <strong>{{'et7-4' | translate}}</strong>
+                            {{'et7-5' | translate}}
+                        </p>
+                        <p>
+                            {{'et7-6' | translate}}
+                        </p>
+                        <a href="https://app.weareturbo.io/">
+                            <button nz-button nzSize="large" nzShape="round" nzType="primary">Turbo</button>
+                        </a>
+                    </div>
+                    <div class="mx-5"></div>
+                    <div class="mt-3 lign-middle bloc-image">
+                        <img class="img22" src="assets/img/broker8.png" alt="" />
+                    </div>
+                </div>
+                <div class="spacer2"></div>
+                <div class="border-steps"></div>
+                <div class="mt-5 tag-steps">
+                    <nz-tag nzColor="processing">ETAPE 8 / Turbo bot </nz-tag>
+                </div>
+                <div class="d-flex step2">
+                    <div class="mt-5 bloc-cards-text tertiary-text">
+                        <h3 class="title-text-secondary">
+                            {{'et8-1' | translate}}
+                        </h3>
+                        <p>
+                            {{'et8-2' | translate}}
+                        </p>
+                        <p>
+                            {{'et8-3' | translate }} <strong class="bg-warning"> {{'et8-4' | translate}} </strong>
+                            {{'et8-5' | translate}}
+                        </p>
+                        <p>
+                            {{'et8-6' | translate}} <strong> {{'et8-7' | translate}} </strong> {{'et8-8' | translate}}
+                        </p>
+                    </div>
+                    <div class="mx-5"></div>
+                    <div class="mt-3 lign-middle bloc-image">
+                        <img class="img22" src="assets/img/broker9.png" alt="" />
+                    </div>
+                </div>
+                <div class="spacer2"></div>
+                <div class="border-steps"></div>
+                <div class="mt-5 tag-steps">
+                    <nz-tag nzColor="processing">ETAPE 9 / Turbo bot </nz-tag>
+                </div>
+                <div class="d-flex step2">
+                    <div class="mt-5 bloc-cards-text tertiary-text">
+                        <h3 class="title-text-secondary">
+                            {{'et9-1' | translate }}
+                        </h3>
+                        <p>
+                            {{'et9-2' | translate }}
+                        </p>
+                        <a href="https://client.fxwinning.pro/">
+                            <button nz-button nzSize="large" nzShape="round" nzType="primary">Brocker</button>
+                        </a>
+                        <p class="mt-3">
+                            {{'et9-3' | translate }} <strong class="bg-warning">{{'et9-4' | translate }}</strong>
+                            {{'et9-5' | translate }}
+                        </p>
+                    </div>
+                    <div class="mx-5"></div>
+                    <div class="mt-3 lign-middle bloc-image">
+                        <img class="img22" src="assets/img/broker10.png" alt="" />
+                    </div>
+                </div>
+                <div class="mt-5 d-flex step2">
+                    <div class="mt-3 lign-middle bloc-image">
+                        <img class="img22" src="assets/img/broker11.jpg" alt="" />
+                    </div>
+                    <div class="mx-5"></div>
+                    <div class="mt-5 bloc-cards-text tertiary-text">
+                        <h4 class="mt-5">{{'et9-6' | translate }}</h4>
+                    </div>
+                </div>
+                <div class="mt-5 d-flex step2">
+                    <div class="mt-5 bloc-cards-text tertiary-text">
+                        <p>
+                            {{'et9-7' | translate }} <strong>{{'et9-8' | translate }}</strong>.
+                        </p>
+                        <p>
+                            {{'et9-9' | translate }} <strong class="bg-warning">{{'et9-10' | translate }}</strong>
+                            {{'et9-11' | translate }}
+                        </p>
+                        <p class="mt-3">
+                            {{'et9-12' | translate }}
+                        </p>
+                    </div>
+                    <div class="mx-5"></div>
+                    <div class="mt-3 lign-middle bloc-image">
+                        <img class="img22" src="assets/img/broker12.png" alt="" />
+                    </div>
+                </div>
+                <nz-alert class="mt-5" nzType="error" nzShowIcon [nzMessage]="temp5">
+                </nz-alert>
+                <ng-template #temp5>
+                    {{'et9-13' | translate}}
+                </ng-template>
+                <div class="spacer2"></div>
+                <div class="border-steps"></div>
+                <div class="mt-5 tag-steps">
+                    <nz-tag nzColor="processing">ETAPE 10 / Turbo bot </nz-tag>
+                </div>
+                <div class="d-flex step2">
+                    <div class="mt-5 bloc-cards-text tertiary-text">
+                        <h3 class="title-text-secondary">
+                            {{'et10-1' | translate}}
+                        </h3>
+                        <a href="https://client.fxwinning.pro/">
+                            <button nz-button nzSize="large" nzShape="round" nzType="primary">Brocker</button>
+                        </a>
+                        <p class="mt-3">
+                            {{'et10-2' | translate}} <strong class="bg-warning"> {{'et10-3' | translate}}</strong>
+                            {{'et10-4' | translate}}
+                        </p>
+                        <p><strong> {{'et10-5' | translate}}</strong></p>
+                        <ul>
+                            <li> {{'et10-6' | translate}} </li>
+                            <li> {{'et10-7' | translate}}</li>
+                            <li> {{'et10-8' | translate}} </li>
+                            <li> {{'et10-9' | translate}}</li>
+                            <li> {{'et10-10' | translate}}</li>
+                        </ul>
+                    </div>
+                    <div class="mx-5"></div>
+                    <div class="mt-3 lign-middle bloc-image">
+                        <img class="img22" src="assets/img/broker13.jpg" alt="" />
+                    </div>
+                </div>
+                <nz-alert class="mt-5" nzType="warning" [nzMessage]="temp10">
+                </nz-alert>
+                <ng-template #temp10>
+                    {{'et10-11' | translate}}
+                </ng-template>
+                <div class="spacer2"></div>
+                <img class="end-img" src="assets/img/end-footer.png" alt="" />
+            </div>
+            <div class="spacer2"></div>
+            <div class="warn-bloc">
+                <h3 class="mt-5 text-center">{{'warn1' | translate }}</h3>
+                <p class="text-center bloc-cards-text tertiary-text">
+                    {{'warn2' | translate }}
+                </p>
+            </div>
+            <!--   <div class="footer mt-5 bloc-text-image d-flex">
+                <img class="footer-img" src="assets/img/commerce.png" alt="" />
+            </div> -->
+
+
+        </nz-spin>
+    </div>
+</div>
+<!-- <h3 class="mt-5 text-center">
+    {{'NameError' | translate}}
+</h3> -->
+<nz-modal nzWidth="100%" [(nzVisible)]="isModalMenu" nzTitle="" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <ng-container *nzModalContent>
+        <div class="mt-3 d-flex justify-content-around">
+            <h5>{{ "LanguageSelected" | translate}} :</h5>
+            <img *ngIf="isFrance == true" (click)="toggleLanguage('en')" role="button" width="32px" height="32px"
+                src="assets/img/fr-flag.png" alt="robot" />
+            <img *ngIf="isFrance == false" (click)="toggleLanguage('fr')" role="button" width="32px" height="32px"
+                src="assets/img/en-flag.png" alt="robot" />
+        </div>
+    </ng-container>
+</nz-modal>
