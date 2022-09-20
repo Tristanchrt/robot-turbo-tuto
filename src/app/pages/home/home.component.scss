@@ -27,7 +27,10 @@ $orange: #C70039;
     color: $orange  !important
 }
 
-
+.cards-bloc-intro {
+    display: flex;
+    justify-content: space-between;
+}
 
 .nav {
     .logo {
