@@ -4,9 +4,10 @@
 # Aller vers le répertoire
 $ cd visio-front
 
+
 # Installer les dépendances
 $ npm i
-
+$ npm i --dev angular-cli-ghpages
 # Démarrer le serveur (nécessite @angular/cli)
 $ ng serve
 ```
