@@ -23,14 +23,12 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { ChartsModule } from 'ng2-charts';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzTimelineModule } from 'ng-zorro-antd/timeline';
-import { NzStatisticModule } from 'ng-zorro-antd/statistic';
 import { NzImageModule } from 'ng-zorro-antd/image';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LottieModule } from 'ngx-lottie';
 import { NzStepsModule } from 'ng-zorro-antd/steps';
-import { NzProgressModule } from 'ng-zorro-antd/progress';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzListModule } from 'ng-zorro-antd/list';
@@ -63,9 +61,7 @@ registerLocaleData(fr);
     NzDropDownModule,
     NzCardModule,
     NzTimelineModule,
-    NzProgressModule,
     ChartsModule,
-    NzStatisticModule,
     NzImageModule,
     NzListModule,
     NzModalModule,

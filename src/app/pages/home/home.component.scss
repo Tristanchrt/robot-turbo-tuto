@@ -376,17 +376,6 @@ footer {
     }
 }
 
-.tag-steps {
-    // color: white;
-    // padding: 8px;
-    // border-radius: 8px;
-    // background-color: $main-color !important;
-    // font-size: 18px;
-    // font-family: Source Code Pro;
-    // text-transform: uppercase;
-    // font-weight: bold;
-}
-
 // ant-tag ant-tag-processing
 .under-line {
     text-decoration-line: underline;
@@ -405,13 +394,6 @@ footer {
         border: solid 2px;
         border-radius: 2em;
     }
-
-    // .ant-tag-processing {
-    //     color: #EF476F;
-    //     background: #ffffff;
-    //     border-color: #EF476F;
-    //     border: solid 2px;
-    // }
 }
 
 :host::ng-deep {
@@ -504,10 +486,10 @@ footer {
         flex-direction: column !important;
         align-items: center !important;
         .card-bloc-intro {
+            margin-bottom: 32px !important;
             img {
                 width: 150% !important !important;;
             }
-            margin-bottom: 32px !important;
         }
     }
 }
