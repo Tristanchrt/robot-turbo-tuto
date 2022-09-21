@@ -61,9 +61,10 @@
     <div class="home-body" data-scroll-container>
 
         <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'">
-            <video class="banniere" loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true">
+            <div class="spacer3"></div>
+            <!-- <video class="banniere" loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true">
                 <source src="assets/animation/banniere.mp4" type="video/mp4">
-            </video>
+            </video> -->
             <div class="mt-5 d-flex introduction justify-content-center">
                 <div>
                     <div class="intro-text">
@@ -88,37 +89,43 @@
                 </div>
             </div>
             <div class="spacer3"></div>
+            <div class="border-steps"></div>
+            <div class="spacer2"></div>
             <div class="mt-5 text-description">
                 <div class="mt-5 d-flex cards-bloc-intro">
-                    <div class="card-bloc-intro">
-                        <img class="img-scan" src="assets/img/rocket.png" alt="" />
-                        <p class="text-center">
-                            {{'card-1' | translate}}
-                        </p>
-                        <p class="text-center">
-                            {{'card-2' | translate}}
-                        </p>
-                    </div>
-                    <div class="mx-5"></div>
-                    <div class="card-bloc-intro">
-                        <img class="img-scan" src="assets/img/money.png" alt="" />
-                        <p class="text-center">
-                            {{'card-3' | translate}}
-                        </p>
-                        <p class="text-center">
-                            {{'card-4' | translate}}
-                        </p>
-                    </div>
-                    <div class="mx-5"></div>
-                    <div class="card-bloc-intro">
-                        <img class="img-scan" src="assets/img/computer.png" alt="" />
-                        <p class="text-center">
-                            {{'card-5' | translate}}
-                        </p>
-                        <p class="text-center">
-                            {{'card-6' | translate}}
-                        </p>
-                    </div>
+                    <nz-card nzHoverable style="width:320px" [nzCover]="rocket">
+                        <nz-card-meta [nzDescription]="cardtext1"></nz-card-meta>
+                    </nz-card>
+                    <ng-template #rocket>
+                        <img alt="example" src="assets/img/rocket.png" />
+                    </ng-template>
+                    <nz-card nzHoverable style="width:320px" [nzCover]="money">
+                        <nz-card-meta [nzDescription]="cardtext2"></nz-card-meta>
+                    </nz-card>
+                    <ng-template #money>
+                        <img alt="example" src="assets/img/money.png" />
+                    </ng-template>
+                    <nz-card nzHoverable style="width:320px" [nzCover]="computer">
+                        <nz-card-meta [nzDescription]="cardtext3"></nz-card-meta>
+                    </nz-card>
+                    <ng-template #computer>
+                        <img alt="example" src="assets/img/computer.png" />
+                    </ng-template>
+                    <ng-template #cardtext1>
+                        {{'card-1' | translate}}
+                        <br>
+                        {{'card-2' | translate}}
+                    </ng-template>
+                    <ng-template #cardtext2>
+                        {{'card-3' | translate}}
+                        <br>
+                        {{'card-4' | translate}}
+                    </ng-template>
+                    <ng-template #cardtext3>
+                        {{'card-5' | translate}}
+                        <br>
+                        {{'card-6' | translate}}
+                    </ng-template>
                 </div>
             </div>
             <div class="spacer3"></div>
@@ -542,7 +549,7 @@
             <div class="spacer2"></div>
             <div class="warn-bloc">
                 <h3 class="mt-5 text-center">{{'warn1' | translate }}</h3>
-                <p class="text-center bloc-cards-text tertiary-text">
+                <p class="text-center bloc-cards-text">
                     {{'warn2' | translate }}
                 </p>
             </div>

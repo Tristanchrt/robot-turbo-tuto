@@ -1,5 +1,3 @@
-
-
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 // @ts-ignore
 import LocomotiveScroll from 'locomotive-scroll';
@@ -68,7 +66,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.scroll = new LocomotiveScroll({
-      el: document.querySelector('[data-scroll-container]'),
+      el: document.querySelector('#body'),
       smooth: true
     });
   }
