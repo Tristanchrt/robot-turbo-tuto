@@ -1,11 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 // @ts-ignore
 import LocomotiveScroll from 'locomotive-scroll';
-import { ChartDataSets, ChartOptions } from 'chart.js';
-import { Color, Label } from 'ng2-charts';
 import { TranslateService } from '@ngx-translate/core';
-import { AnimationOptions } from 'ngx-lottie';
-import { AnimationItem } from 'lottie-web';
 
 @Component({
   selector: 'app-home',
@@ -30,23 +26,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
   isModalMenu: boolean = false;
   current = 4;
 
-  robotMain: AnimationOptions = {
-    path: '/assets/animation/robot_main.json',
-  };
-  robot1: AnimationOptions = {
-    path: '/assets/animation/robot1.json',
-  };
-  robotTuto: AnimationOptions = {
-    path: '/assets/animation/robot_tuto.json',
-  };
 
   formatOne = (percent: number): string => `ETAPE ${percent}`;
 
-  animationCreated(animationItem: AnimationItem): void {
-    animationItem.firstFrame = 180;
-    animationItem.loop = false;
-    console.log(animationItem);
-  }
 
   reload(): void {
     window.location.reload();
