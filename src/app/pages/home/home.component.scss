@@ -19,7 +19,6 @@ $orange: #C70039;
 
 .end-img {
     margin-left: -34em;
-    width: 160em;
     height: 51em;
 }
 
@@ -74,10 +73,9 @@ $orange: #C70039;
     height: 500px;
 }
 .warn-bloc {
-    z-index: 1000;
-    position: absolute;
-    margin-bottom: -23me;
-    margin-top: -42em;
+    background-color: #141c8b;
+    padding: 64px;
+    border-radius: 16px;
     color: white;
     * {
         font-size: 15px;
